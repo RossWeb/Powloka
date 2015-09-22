@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Powloka by RossWeb</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Powloka</h1>
+        <p>This is simple console application (on window) aka terminal in linux - simple commands with parameters</p>
+
+        <p class="view"><a href="https://github.com/RossWeb/Powloka">View the Project on GitHub <small>RossWeb/Powloka</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/RossWeb/Powloka/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/RossWeb/Powloka/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/RossWeb/Powloka">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>Powłoka jest prostą aplikacją okienkową wykonaną w języku Java symulującą Linuxowy terminal
+Bazując na wzorcu Model View Controller oraz Observer udało mi się wykonać moduły niezależne od siebie na tyle na ile oczywiście było to możliwe zgodnie z przyjętą polityką obiektowości, jak również dla własnej wygody co pozwalało mi się skupić na konkretnym module bez ingerencji i zmian w inny. Model posiada łatwy sposób dodawania nowych poleceń dzięki rozszerzeniu klasy Command oraz implementacji własności wraz z ustawieniem podstawowych pól takich jak nazwa, opis itd - tutaj od razu uwaga : oczywiście mogłem tą sprawę zrobić poprzez interfejs który trzeba by było zaimplementować  jednak wolałem zostawić wzorzec w klasie bazowej, gdyż nie zawsze będzie to konieczne, a pozwoli uniknąć błędów w gotowej już aplikacji, drugą sprawą byłaby liczba metod do zaimplementowania. Reasumując tą kwestię wolałem utworzyć pola finalne w danych poleceniu, które by były parametrami metody w klasie bazowej - w moim przekonaniu jest to prostsze i czytelniejsze. By ostatecznie utworzone polecenie było widoczne w aplikacji należy dodać je w enumie, który zarządza również obsługą wszystkich poleceń.
+Sama konstrukcja obsługi poleceń składa się z dwóch elementów : wczytania tekstu - sprawdzenia czy łączymy polecenia za pomocą strumienia i wykonanie poleceń. Dodatkową metodą jest sprawdzenie konsoli co pozwala wyświetlić polecenia po wpisaniu jednej litery lub nazwy plików/katalogów. Obsługa polecenia zawarta jest bezpośrednio w danej klasie.
+Musiałem jeszcze wydzielić klasę zarządzającą systemem plików (ścieżkami dostępu) stąd jest to oddzielna klasa poza poleceniami, które z niej korzystają. Sam model posiada również obsługę błędów co jest widoczne w przypadku np. niepoprawnego wpisania polecenia. </p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/RossWeb">RossWeb</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
